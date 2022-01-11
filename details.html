@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="css/bootstrap.min.css" />
+  <script src="js/popper.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="container-fluid bg-dark">
+    <div class="container">
+      <nav class="navbar">
+        <div class="container-fluid">
+          <a class="navbar-brand navbar-dark bg-dark text-white" href="#" id="">
+            <div class="row">
+              <div class="col-3">
+                <img src="https://flagcdn.com/w320/pe.png" alt="" height="30" class="d-inline-block align-text-top"
+                  id="flag" />
+              </div>
+
+              <div class="row col">
+                <span id="country_name">Country App</span>
+                <sub id="official"></sub>
+              </div>
+            </div>
+          </a>
+        </div>
+      </nav>
+    </div>
+  </div>
+  <div class="container-fluid">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <div id="geomap" style="width: 100%; height: 400px"></div>
+        </div>
+        <div class="col-md-6">
+          <div class="card" style="color: #4b515d; border-radius: 35px">
+            <div class="card-body p-4">
+              <div class="d-flex">
+                <h6 class="flex-grow-1">Warsaw</h6>
+                <h6>15:07</h6>
+              </div>
+
+              <div class="d-flex flex-column text-center mt-5 mb-4">
+                <h6 class="display-4 mb-0 font-weight-bold" style="color: #1c2331">
+                  <span id="temp">13°C</span>
+                </h6>
+                <span class="small" style="color: #868b94">Stormy</span>
+              </div>
+
+              <div class="d-flex align-items-center">
+                <div class="flex-grow-1" style="font-size: 1rem">
+                  <div>
+                    <i class="fas fa-wind fa-fw" style="color: #868b94"></i>
+                    <span class="ms-1"> 40 km/h </span>
+                  </div>
+                  <div>
+                    <i class="fas fa-tint fa-fw" style="color: #868b94"></i>
+                    <span class="ms-1"> 84% </span>
+                  </div>
+                  <div>
+                    <i class="fas fa-sun fa-fw" style="color: #868b94"></i>
+                    <span class="ms-1"> 0.2h </span>
+                  </div>
+                </div>
+                <div>
+                  <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-weather/ilu1.webp"
+                    width="100px" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+<script src="js/details.js"></script>
+
+</html>
