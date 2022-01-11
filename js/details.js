@@ -36,8 +36,8 @@ function updateCountry(code) {
 
         for (let i = 0; i < keys.length; i++) {
           document.getElementById("sym").innerHTML = count.currencies[keys[i]].symbol;
-          document.getElementById("crid").setAttribute("href", "/params.html?param=" + count.currencies[keys[i]].name + "&type=currency");
-          document.getElementById("crid").innerHTML = count.currencies[keys[i]].name;
+          //document.getElementById("crid").setAttribute("href", "/params.html?param=" + count.currencies[keys[i]].name + "&type=currency");
+          document.getElementById("currency").textContent = " " + count.currencies[keys[i]].name;
         }
         document.getElementById("idd").innerHTML = count.idd["root"] + count.idd["suffixes"][0];
         document.getElementById("capital").innerHTML = `<a href="/params.html?param=${count.capital[0]}&type=capital">${count.capital[0]}</a>`;

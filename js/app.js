@@ -1,7 +1,8 @@
 const base_url = "https://restcountries.com/v2/";
 
+
 const searchInp = document.getElementById("countryId");
-const prbar = document.getElementById("prbar");
+
 const result = document.getElementById("result");
 let html = "";
 searchInp.addEventListener("keyup", (e) => {
@@ -9,7 +10,7 @@ searchInp.addEventListener("keyup", (e) => {
   getJson(base_url + "name/" + text);
 });
 
-window.onload = loadMain();
+
 
 function getJson(url) {
   var xhttp = new XMLHttpRequest();
@@ -32,7 +33,7 @@ function getJson(url) {
                              </div>
                              
                              
-                         </div>
+                      </div>
              </li>
            `;
         } else {
@@ -77,7 +78,7 @@ function getJson(url) {
                         </div>
             </li>
           `;
-        console.log(error);
+
       }
     } else {
       html += `
@@ -96,28 +97,12 @@ function getJson(url) {
          </li>
        `;
     }
-    if (this.readyState == 0) {
-      var val = this.readyState * 20;
-      prbar.text = val.toString();
-      prbar.setAttribute("aria-valuenow", val.toString());
-      prbar.style.width = val.toString() + "%";
-    }
+
 
     html += "</ul>";
 
     result.innerHTML = html;
   };
-
-  xhttp.open("GET", url);
-  xhttp.setRequestHeader("Content-type", "application/json");
-  xhttp.send();
-}
-
-function loadMain(url) {
-  var xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function () {
-    console.log(this.responseText);
-  }
 
   xhttp.open("GET", url);
   xhttp.setRequestHeader("Content-type", "application/json");

@@ -13,6 +13,7 @@ xhttp.onreadystatechange = function () {
     try {
         let html = `<div class="row justify-content-around">`;
         let resp = JSON.parse(this.responseText);
+        resp.sort(compare);
         for (let i = 0; i < resp.length; i++) {
             let imh = "<img src='" + resp[i].flags.svg + "' class='img img_poor'/>";
             html += `
@@ -44,3 +45,11 @@ xhttp.onreadystatechange = function () {
 xhttp.open("GET", base_url);
 xhttp.setRequestHeader("Content-type", "application/json");
 xhttp.send();
+
+function compare(a, b) {
+    if (a.name.common < b.name.common)
+        return -1;
+    if (a.name.common > b.name.common)
+        return 1;
+    return 0;
+}
