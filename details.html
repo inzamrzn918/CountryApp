@@ -6,7 +6,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="css/bootstrap.min.css" />
-  <script src="js/popper.js"></script>
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="js/popper.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <title>Document</title>
 </head>
@@ -19,13 +20,14 @@
           <a class="navbar-brand navbar-dark bg-dark text-white" href="#" id="">
             <div class="row">
               <div class="col-3">
-                <img src="https://flagcdn.com/w320/pe.png" alt="" height="30" class="d-inline-block align-text-top"
-                  id="flag" />
+                <img src="https://flagcdn.com/w320/pe.png" alt="" height="30" id="flag" />
               </div>
 
-              <div class="row col">
-                <span id="country_name">Country App</span>
-                <sub id="official"></sub>
+              <div class="col">
+                <div class="row">
+                  <span id="country_name">Country App</span>
+                  <sub id="official"></sub>
+                </div>
               </div>
             </div>
           </a>
@@ -34,43 +36,45 @@
     </div>
   </div>
   <div class="container-fluid">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6">
-          <div id="geomap" style="width: 100%; height: 400px"></div>
+    <div class="container mt-4">
+      <div class="row justify-content-center">
+        <div class="col-md-8">
+          <div id="geomap" class="card" style="border-radius: 10px; height: 100%;">
+            <iframe src="" frameborder="0" id="map" height="100%"></iframe>
+          </div>
         </div>
-        <div class="col-md-6">
-          <div class="card" style="color: #4b515d; border-radius: 35px">
+        <div class="col-md-4">
+          <div class="card" style="color: #4b515d; border-radius: 15px">
             <div class="card-body p-4">
               <div class="d-flex">
-                <h6 class="flex-grow-1">Warsaw</h6>
-                <h6>15:07</h6>
+                <h6 class="flex-grow-1" id="country_name_w">Warsaw</h6>
+                <h6 id="time">05:07 pm</h6>
               </div>
 
               <div class="d-flex flex-column text-center mt-5 mb-4">
                 <h6 class="display-4 mb-0 font-weight-bold" style="color: #1c2331">
                   <span id="temp">13°C</span>
                 </h6>
-                <span class="small" style="color: #868b94">Stormy</span>
+                <span id="condition" class="small" style="color: #868b94">Stormy</span>
               </div>
 
               <div class="d-flex align-items-center">
                 <div class="flex-grow-1" style="font-size: 1rem">
                   <div>
                     <i class="fas fa-wind fa-fw" style="color: #868b94"></i>
-                    <span class="ms-1"> 40 km/h </span>
+                    <span class="ms-1" id="wkh"> 40 km/h </span>
                   </div>
                   <div>
                     <i class="fas fa-tint fa-fw" style="color: #868b94"></i>
-                    <span class="ms-1"> 84% </span>
+                    <span class="ms-1" id="humidity"> 84% </span>
                   </div>
                   <div>
                     <i class="fas fa-sun fa-fw" style="color: #868b94"></i>
-                    <span class="ms-1"> 0.2h </span>
+                    <span class="ms-1" id="cloud"> 16% </span>
                   </div>
                 </div>
                 <div>
-                  <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-weather/ilu1.webp"
+                  <img id="icon" src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-weather/ilu1.webp"
                     width="100px" />
                 </div>
               </div>
@@ -78,8 +82,57 @@
           </div>
         </div>
       </div>
+      <hr>
+      <div class="container mb-4">
+        <div class="row justify-content-around">
+          <div class="col-3 col-xs-12">
+            <b>Currency :- <br><span id="sym"></span></b>
+            <a href="" id="crid">
+              <p id="currency"></p>
+            </a>
+
+            </p><br>
+            <b>Country Code :</b>
+            <p id="idd"></p>
+
+            <br>
+            <b>Languages Spoken : </b>
+            <div id="lang" class="row"></div>
+          </div>
+          <div class="col-3 col-xs-12">
+            <b>Capital :</b>
+            <div id="capital">
+
+            </div>
+            <br>
+            <b>Region :</b>
+            <div id="region">
+
+            </div>
+            <br>
+            <b>Subregion :</b>
+            <div id="subregion">
+
+            </div><br>
+            <b>Population : </b>
+            <p id="population"></p>
+          </div>
+          <div class="col-3 col-xs-12">
+            <b>Borders : </b>
+            <div id="borders"></div><br>
+            <b>Area : </b><br>
+            <span id="area"></span><span> km<sup>2</sup></span><br><br>
+            <b>Driving Side : </b>
+            <p id="dside"></p>
+          </div>
+          <div class="col-3 card p-4">
+            <img src="" alt="" id="coatOfArms" height="250px">
+          </div>
+        </div>
+      </div>
     </div>
   </div>
+
 </body>
 <script src="js/details.js"></script>
 

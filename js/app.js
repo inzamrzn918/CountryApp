@@ -1,4 +1,4 @@
-const base_url = "https://restcountries.com/v2/name/";
+const base_url = "https://restcountries.com/v2/";
 
 const searchInp = document.getElementById("countryId");
 const prbar = document.getElementById("prbar");
@@ -6,8 +6,10 @@ const result = document.getElementById("result");
 let html = "";
 searchInp.addEventListener("keyup", (e) => {
   var text = searchInp.value;
-  getJson(base_url + text);
+  getJson(base_url + "name/" + text);
 });
+
+window.onload = loadMain();
 
 function getJson(url) {
   var xhttp = new XMLHttpRequest();
@@ -35,29 +37,26 @@ function getJson(url) {
            `;
         } else {
           for (var i = 0; i < json.length; i++) {
-            var imgUrl = json[i].flag.replace(/\s+/g, "/");
-            console.log(imgUrl);
-
+            let img = " <img src='" + json[i].flag + "' height='50px' width='70px' class='rounded float-left ml-2'>";
             html += `
                     <a href="/details.html?code3=${json[i].alpha3Code}&code2${json[i].alpha2Code}"
-                    <li class="list-group-item d-flex align-items-start">
+                    <li class="list-group-item">
                         <div class="me-auto">
-                            <div class="row">
-                                <div class="col-3>
-                                 <img src="${imgUrl}" height="100px" width="150px">
+                            <div class="row d-flex justify-content-between">
+                                <div class="col-4">
+                                  ${img}
                                 </div>
-                                <div class="row col-9>
-                                    <div class="fw-bold text-start pl-4">&nbsp;Name : ${json[i].name}</div>
+                                <div class="col-6">
+                                    <div class="text-start">Name : ${json[i].name}</div>
                                     <div class="text-start">Local Name : ${json[i].altSpellings[1] !== undefined ? json[i].altSpellings[1] : "Not Available"}</div>
-                                </div>
-                                
-                            </div>
-                            
-                            
+                                </div>   
+                                <div class="col-2">
+                                  <span class="badge bg-primary rounded-pill">${json[i].alpha3Code}</span>
+                                </div>                     
+                            </div>                         
                         </div>
-                        <span class="badge bg-primary rounded-pill">${json[i].alpha3Code}</span>
+                        
                     </li>
-               
                     
             `;
           }
@@ -105,8 +104,20 @@ function getJson(url) {
     }
 
     html += "</ul>";
+
     result.innerHTML = html;
   };
+
+  xhttp.open("GET", url);
+  xhttp.setRequestHeader("Content-type", "application/json");
+  xhttp.send();
+}
+
+function loadMain(url) {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function () {
+    console.log(this.responseText);
+  }
 
   xhttp.open("GET", url);
   xhttp.setRequestHeader("Content-type", "application/json");
