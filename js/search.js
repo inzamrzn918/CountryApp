@@ -1,17 +1,16 @@
 const base_url = "https://restcountries.com/v2/";
-
-
 const searchInp = document.getElementById("countryId");
-
 const result = document.getElementById("result");
 let html = "";
+
+// ========== SEARCH FIELD ONKEY UP ==========
 searchInp.addEventListener("keyup", (e) => {
-  var text = searchInp.value;
+  let text = searchInp.value;
   updateUI(base_url + "name/" + text);
 });
 
 
-
+// =========== GET RESPONSE & UPDATE UI =========
 updateUI = (url) => {
   let response = getResponse(url);
   response.then(data => {

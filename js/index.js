@@ -1,7 +1,7 @@
 window.onload = function () {
     const base_url_all = "https://restcountries.com/v3.1/all";
 
-
+    // =========== GET RESPONSE & UPDATE UI =============
     let response = getResponse(base_url_all);
     response.then(data => {
         data.sort(compare);

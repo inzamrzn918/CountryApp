@@ -6,6 +6,7 @@ document.getElementById("params").textContent = ` ${type} "${code}"`;
 let base_url = "https://restcountries.com/v3.1/";
 base_url += (type + "/" + code);
 let response = getResponse(base_url);
+// =========== GET RESPONSE & UPDATE UI =============
 response.then(data => {
     let html = `<div class="row justify-content-around mt-4">`;
     data.sort(compare);

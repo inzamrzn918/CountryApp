@@ -1,9 +1,10 @@
-const urlParams = new URLSearchParams(window.location.search);
-let code = urlParams.get("code");
 const country_name = document.getElementById("country_name");
 const country_flag = document.getElementById("flag");
-document.getElementById("time").textContent = formatAMPM(new Date);
 
+
+// ========== CHECKING URL PARAMETER =========
+const urlParams = new URLSearchParams(window.location.search);
+let code = urlParams.get("code");
 if (code == null) {
   code = urlParams.get("code2");
 }
@@ -12,7 +13,7 @@ if (code == null) {
   code = urlParams.get("code3");
 }
 
-// updateCountry(code);
+// ======== UPDATE COUNTRY DATA =======
 let url = "https://restcountries.com/v3.1/alpha/" + code;
 let response = getResponse(url);
 response.then(data => {
@@ -20,6 +21,7 @@ response.then(data => {
   if (count == undefined) {
     console.log("No Result Found");
   } else {
+    document.getElementById("time").textContent = formatAMPM(new Date);
     country_name.textContent = count.name.common;
     document.getElementById('country_name_w').textContent = count.name.common
     country_flag.src = count.flags.svg;
