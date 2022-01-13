@@ -4,6 +4,7 @@ window.onload = function () {
     // =========== GET RESPONSE & UPDATE UI =============
     let response = getResponse(base_url_all);
     response.then(data => {
+        document.getElementById("loader").style.display = "none";
         data.sort(compare);
         let html = `<div class="row justify-content-around">`;
         for (let i = 0; i < data.length; i++) {
