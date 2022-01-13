@@ -17,6 +17,7 @@ if (code == null) {
 let url = "https://restcountries.com/v3.1/alpha/" + code;
 let response = getResponse(url);
 response.then(data => {
+  document.getElementById("loader").style.display = "none";
   let count = data[0];
   if (count == undefined) {
     console.log("No Result Found");

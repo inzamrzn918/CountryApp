@@ -2,11 +2,13 @@ const base_url = "https://restcountries.com/v2/";
 const searchInp = document.getElementById("countryId");
 const result = document.getElementById("result");
 let html = "";
+document.getElementById("loader").style.display = "none";
 
 // ========== SEARCH FIELD ONKEY UP ==========
 searchInp.addEventListener("keyup", (e) => {
   let text = searchInp.value;
   updateUI(base_url + "name/" + text);
+  document.getElementById("loader").style.display = "block";
 });
 
 
@@ -14,6 +16,7 @@ searchInp.addEventListener("keyup", (e) => {
 updateUI = (url) => {
   let response = getResponse(url);
   response.then(data => {
+    document.getElementById("loader").style.display = "none";
     html = "";
     for (var i = 0; i < data.length; i++) {
       let img = " <img src='" + data[i].flag + "' height='50px' width='70px' class='rounded float-left ml-2'>";

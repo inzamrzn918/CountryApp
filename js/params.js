@@ -8,6 +8,7 @@ base_url += (type + "/" + code);
 let response = getResponse(base_url);
 // =========== GET RESPONSE & UPDATE UI =============
 response.then(data => {
+    document.getElementById("loader").style.display = "none";
     let html = `<div class="row justify-content-around mt-4">`;
     data.sort(compare);
     for (let i = 0; i < data.length; i++) {
